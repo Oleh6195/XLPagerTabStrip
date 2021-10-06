@@ -163,10 +163,12 @@ open class PagerTabStripViewController: UIViewController, UIScrollViewDelegate {
             tmpViewControllers[fromIndex] = currentChildVC
             pagerTabStripChildViewControllersForScrolling = tmpViewControllers
 //            containerView.setContentOffset(CGPoint(x: pageOffsetForChild(at: fromIndex), y: 0), animated: false)
-//            (navigationController?.view ?? view).isUserInteractionEnabled = !animated
-            containerView.setContentOffset(CGPoint(x: pageOffsetForChild(at: index), y: 0), animated: true)
+            (navigationController?.view ?? view).isUserInteractionEnabled = !animated
+//            containerView.setContentOffset(CGPoint(x: pageOffsetForChild(at: index), y: 0), animated: true)
+            self.containerView.setContentOffset(CGPoint(x: self.pageOffsetForChild(at: fromIndex), y: 0), animated: false)
             DispatchQueue.main.async {
-                self.containerView.setContentOffset(CGPoint(x: self.pageOffsetForChild(at: index), y: 0), animated: true)
+                self.containerView.setContentOffset(CGPoint(x: self.pageOffsetForChild(at: index), y: 0), animated: animated)
+                (self.navigationController?.view ?? self.view).isUserInteractionEnabled = true
             }
             print("4DEBUG offset \(pageOffsetForChild(at: index)) at \(index) result \(self.containerView.contentOffset)")
         } else {

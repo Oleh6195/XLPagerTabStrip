@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XLPagerTabStrip"
-  s.version      = "9.5.0"
+  s.version      = "9.6.0"
   s.summary      = "iOS architecture framework"
   s.description  = <<-DESC
                    Swift library for architecting tvOS applications using the
